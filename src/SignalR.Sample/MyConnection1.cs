@@ -18,10 +18,14 @@ namespace SignalR.Sample
         //    Debug.WriteLine("构造函数初始化");
         //}
 
-        //protected override Task OnConnected(IRequest request, string connectionId)
-        //{
-        //    return Connection.Send(connectionId, "Welcome!");
-        //}
+        protected override Task OnConnected(IRequest request, string connectionId)
+        {
+            var examUseId = request.QueryString["ExamUseId"];
+
+            this.Groups.Add(connectionId, examUseId);
+
+            return Connection.Send(connectionId, "Welcome!");
+        }
 
         //protected override Task OnReceived(IRequest request, string connectionId, string data)
         //{
@@ -45,15 +49,17 @@ namespace SignalR.Sample
             if (model.Action == "Welcome")
             {
                 //通知组
-                this.Groups.Add(connectionId, model.RoomName);
-                //除了当前房间这个人，其他人都能获得推送
-                return this.Groups.Send(model.RoomName, $"Welcome New User {connectionId}", connectionId);
+                //this.Groups.Add(connectionId, model.RoomName);
+                ////除了当前房间这个人，其他人都能获得推送
+                //return this.Groups.Send(model.RoomName, $"Welcome New User {connectionId}", connectionId);
             }
             else
             {
                 //model.Data是我们要发送的参数
-                return this.Groups.Send(model.RoomName, model.Data, connectionId);
             }
+
+            return this.Groups.Send(model.RoomName, model.Data, connectionId);
+
         }
 
     }

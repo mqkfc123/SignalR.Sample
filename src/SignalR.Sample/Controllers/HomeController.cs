@@ -19,5 +19,13 @@ namespace SignalR.Sample.Controllers
             return View();
         }
 
+        //发送通知
+        public ActionResult SendNotice()
+        {
+            ViewBag.Data = "liuyl答题";
+            return View();
+        }
+
+
     }
 }

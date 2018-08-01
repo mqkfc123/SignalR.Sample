@@ -10,34 +10,44 @@
     <meta name="viewport" content="width=device-width" />
     <script src="~/Scripts/jquery-1.6.4.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
-    <title>Room</title>
-
+    <title>SendNotice</title>
 </head>
 <body>
     <div>
-        <div>消息列表：</div> 
-        <div id="msgDiv">
-
-        </div>
+        <input type="text" id="msg" value="" />
+        <input type="button" id="send" value="发送" />
     </div>
 
     <script type="text/javascript">
+        var msg = "@ViewBag.Data";
+
         var data = new Object();
         //使用ID
         data.ExamUseId = "dragon";
         var conn = $.connection("/myconn", data);
         conn.start(function (data) {
-
+            conn.send(
+             {
+                 RoomName: "dragon",
+                 Data: msg,
+                 Action: ""
+             });
         });
 
+        //发送
+        $("#send").click(function () {
+            conn.send(
+                {
+                    RoomName: "dragon",
+                    Data: $("#msg").val(),
+                    Action: ""
+                });
+        });
         //接收服务器消息
         conn.received(function (data) {
             console.log(data);
-            $("#msgDiv").append("<span>" + data + "</span></br>");
         });
 
     </script>
 </body>
-
-
 </html>
