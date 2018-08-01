@@ -13,5 +13,11 @@ namespace SignalR.Sample.Controllers
         {
             return View();
         }
+
+        public ActionResult Room()
+        {
+            return View();
+        }
+
     }
 }

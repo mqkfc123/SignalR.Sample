@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
+    <title>Room</title>
+     
+</head>
+<body>
+    <div>
+        <input type="button" id="room1" value="房间1" />
+
+        <input type="text" id="msg" value="" />
+        <input type="button" id="send" value="发送" />
+    </div>
+
+    <script type="text/javascript">
+        var conn = $.connection("/myconn");
+        conn.start(function (data) {
+
+        });
+
+        $("#room1").click(function () { 
+            conn.send(
+                {
+                    RoomName: "room1",
+                    Data: "",
+                    Action: "Welcome"
+                });
+        });
+
+        //发送
+        $("#send").click(function () {
+            conn.send(
+                {
+                    RoomName: "room1",
+                    Data: $("#msg").val(),
+                    Action: ""
+                });
+        });
+        //接收服务器消息
+        conn.received(function (data) {
+            console.log(data);
+        });
+
+    </script>
+</body>
+
+
+</html>
