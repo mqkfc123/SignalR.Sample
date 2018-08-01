@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
+    <title>Index</title>
+    <script type="text/javascript">
+        var conn = $.connection("/myconn");
+        conn.start(function (data) {
+
+        });
+
+        //接收服务器消息
+        conn.received(function (data) {
+            console.log(data);
+        });
+        
+        //网络协议
+        conn.connectionSlow(function () {
+
+        });
+
+        conn.disconnected(function () {
+
+        });
+
+        conn.error(function () {
+
+        });
+         
+
+    </script>
+</head>
+<body>
+    <div> 
+        signalR
+    </div>
+</body>
+</html>
