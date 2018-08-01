@@ -14,6 +14,7 @@
 *.js linguist-language=C#
 *.css linguist-language=C#
 *.html linguist-language=C#
+*.cs linguist-language=C#
 ###############################################################################
 # Set the merge driver for project and solution files
 #
