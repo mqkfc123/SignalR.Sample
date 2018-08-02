@@ -10,7 +10,7 @@ namespace SignalR.Hubs.Sample
     {
         public void Hello()
         {
-            Clients.All.hello();
+            Clients.All.Welcome("Welcome SignalR Hub");
         }
     }
 }
