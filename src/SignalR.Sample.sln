@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Sample", "SignalR.Sample\SignalR.Sample.csproj", "{2D415EAE-1FB0-44EA-BCF6-5E4307CA05B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Hubs.Sample", "SignalR.Hubs.Sample\SignalR.Hubs.Sample.csproj", "{4FC61C19-A97B-46C0-A543-15B3CEB8F412}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Hubs.Sample", "SignalR.Hubs.Sample\SignalR.Hubs.Sample.csproj", "{B78B88EB-C465-4988-8945-5B7B464A42F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{2D415EAE-1FB0-44EA-BCF6-5E4307CA05B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D415EAE-1FB0-44EA-BCF6-5E4307CA05B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D415EAE-1FB0-44EA-BCF6-5E4307CA05B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FC61C19-A97B-46C0-A543-15B3CEB8F412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FC61C19-A97B-46C0-A543-15B3CEB8F412}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FC61C19-A97B-46C0-A543-15B3CEB8F412}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FC61C19-A97B-46C0-A543-15B3CEB8F412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78B88EB-C465-4988-8945-5B7B464A42F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78B88EB-C465-4988-8945-5B7B464A42F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78B88EB-C465-4988-8945-5B7B464A42F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78B88EB-C465-4988-8945-5B7B464A42F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
