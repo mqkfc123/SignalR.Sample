@@ -13,5 +13,14 @@ namespace SignalR.Hubs.Sample.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 无代理js模式
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index2()
+        {
+            return View();
+        }
     }
 }
