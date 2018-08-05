@@ -69,7 +69,8 @@ namespace SignalR.Hubs.Sample
 
             //Clients.Users();
 
-
+            //this.Groups.Add();
+            //this.Groups.Remove();
         }
 
 

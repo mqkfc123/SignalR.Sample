@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
+    <title>OtherIndex</title>
+
+    <script type="text/javascript">
+
+
+        //var conn = $.hubConnection();
+        var conn = $.hubConnection("/myHub2");
+
+        //定义客户端
+        var proxy = conn.createHubProxy("MyHub2");
+        proxy.on("notice", function (msg) {
+            console.log(msg)
+        });
+
+        proxy.on("Welcome", function (msg) {
+            console.log(msg)
+        });
+
+        conn.start().done(function (data) {
+            console.log(data);
+            //发消息 服务器方法
+            proxy.invoke("Hello");
+
+        }).fail(function (data) {
+            console.log(data)
+        });
+
+
+    </script>
+</head>
+<body>
+    <div> 
+    </div>
+</body>
+</html>

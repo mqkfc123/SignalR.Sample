@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -39,6 +41,33 @@ namespace SignalR.Hubs.Sample.Controllers
         /// <returns></returns>
         public ActionResult MyGroups()
         {
+            return View();
+        }
+
+        /// <summary>
+        /// GlobalHost 第三方监控
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult OtherIndex()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// GlobalHost 第三方监控
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Other()
+        {
+            Thread.Sleep(5000);
+
+            var connectionID = MyHub2.list[0];
+            //获取当前的持久连接
+            //GlobalHost.ConnectionManager.GetConnectionContext<MyHub2>();
+
+            var hub = GlobalHost.ConnectionManager.GetHubContext<MyHub2>();
+
+            hub.Clients.Client(connectionID).notice("您当前已经欠费");
             return View();
         }
         

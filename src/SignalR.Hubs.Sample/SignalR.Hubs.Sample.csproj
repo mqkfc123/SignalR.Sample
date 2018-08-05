@@ -164,6 +164,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MyHub1.cs" />
+    <Compile Include="MyHub2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup1.cs" />
   </ItemGroup>
@@ -175,6 +176,8 @@
     </Content>
     <Content Include="Views\Home\Index3.cshtml" />
     <Content Include="Views\Home\MyGroups.cshtml" />
+    <Content Include="Views\Home\Other.cshtml" />
+    <Content Include="Views\Home\OtherIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
