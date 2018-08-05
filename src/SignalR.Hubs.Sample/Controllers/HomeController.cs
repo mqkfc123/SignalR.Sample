@@ -22,5 +22,19 @@ namespace SignalR.Hubs.Sample.Controllers
         {
             return View();
         }
+
+
+        /// <summary>
+        /// Hub的Server操作 
+        /// 和Persistent差不多
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index3()
+        {
+            return View();
+        }
+
+
+
     }
 }

@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script> 
+    <title>Index3</title>
+
+    <script type="text/javascript">
+
+
+        //无代理模式  解耦操作
+        //var conn = $.hubConnection();
+        //传参数
+        //var conn = $.hubConnection("/myHub", { qs: "username=11111111111111111" });
+        var conn = $.hubConnection("/myHub");
+
+        //定义客户端
+        var proxy = conn.createHubProxy("MyHub1");
+        proxy.on("Welcome", function (msg) {
+            console.log(msg)
+        });
+
+        conn.start().done(function (data) {
+            console.log(data);
+            //发消息 服务器方法
+            proxy.invoke("Hello",1);
+
+        }).fail(function (data) {
+            console.log(data)
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <div>       
+        Hub的Server操作
+        和Persistent差不多
+    </div>
+</body>
+</html>
