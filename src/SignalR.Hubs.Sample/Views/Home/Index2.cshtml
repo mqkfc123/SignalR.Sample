@@ -14,26 +14,21 @@
 
     <script type="text/javascript">
 
-        //var proxy = $.connection;
 
-        //proxy.client.welcome = function (msg) {
-        //    //这个方法被服务端调用
-        //    //连接成功的时候执行
-        //    console.log(msg);
-        //}
-
-        ////通过start连接到服务器
-        //$.connection.hub.start().done(function (data) {
-        //    proxy.server.hello();
-
-        //}).fail(function (data) {
-
-        //});
-
+        //无代理模式
         var conn = $.hubConnection();
+
+        //定义客户端 
+        var proxy = conn.createHubProxy("MyHub1");
+        proxy.on("Welcome", function (msg) {
+            console.log(msg)
+        });
 
         conn.start().done(function (data) {
             console.log(data);
+            //发消息 服务器方法
+            proxy.invoke("Hello");
+
         }).fail(function (data) {
             console.log(data)
         });
@@ -43,6 +38,7 @@
 </head>
 <body>
     <div>
+        无代理模式
     </div>
 </body>
 </html>
