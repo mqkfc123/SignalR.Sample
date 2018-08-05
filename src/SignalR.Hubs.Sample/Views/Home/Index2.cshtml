@@ -15,8 +15,11 @@
     <script type="text/javascript">
 
 
-        //无代理模式
-        var conn = $.hubConnection();
+        //无代理模式  解耦操作
+        //var conn = $.hubConnection();
+        //传参数
+        //var conn = $.hubConnection("/myHub", { qs: "username=11111111111111111" });
+        //var conn = $.hubConnection("/myHub");
 
         //定义客户端 
         var proxy = conn.createHubProxy("MyHub1");

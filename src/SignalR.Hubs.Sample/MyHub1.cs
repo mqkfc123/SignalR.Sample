@@ -10,6 +10,8 @@ namespace SignalR.Hubs.Sample
     {
         public void Hello()
         {
+            //获取参数
+            var username = this.Context.QueryString["username"];
             Clients.All.Welcome("Welcome SignalR Hub");
         }
     }
