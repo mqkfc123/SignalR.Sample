@@ -33,8 +33,15 @@ namespace SignalR.Hubs.Sample.Controllers
         {
             return View();
         }
-
-
+        /// <summary>
+        /// Hub中的clients属性和groups属性的操作。
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult MyGroups()
+        {
+            return View();
+        }
+        
 
     }
 }

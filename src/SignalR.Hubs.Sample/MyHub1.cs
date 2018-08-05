@@ -28,7 +28,7 @@ namespace SignalR.Hubs.Sample
         }
 
         /*下面三个重写方法来维护connetionID*/
-
+        
         public override Task OnConnected()
         {
             var connectionId = this.Context.ConnectionId;
@@ -45,6 +45,33 @@ namespace SignalR.Hubs.Sample
         {
             return base.OnReconnected();
         }
+
+
+        /*Hub中的clients属性和groups属性的操作。*/
+        public void GroupHello()
+        {
+            Clients.All.Welcome($"Welcome SignalR GroupHello:{this.Context.ConnectionId}");
+
+            //去除当前的人
+            //Clients.AllExcept(this.Context.ConnectionId).Welcome($"Welcome SignalR GroupHello:{this.Context.ConnectionId}"); 
+
+            //给指定的人发送消息
+            //Clients.Client(this.Context.ConnectionId).Welcome($"Welcome SignalR GroupHello:{this.Context.ConnectionId}");
+            //给一组人发送
+            //Clients.Clients
+            //组的概念
+            // Clients.Group("room1","dd");
+            // 给指定房间中的指定人发送消息
+            // Clients.Groups();
+
+            //userID授权登入
+            //Clients.User(this.Context.Request.User.Identity.Name);
+
+            //Clients.Users();
+
+
+        }
+
 
 
     }
