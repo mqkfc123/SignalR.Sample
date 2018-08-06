@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 using Microsoft.AspNet.SignalR;
+using System.Collections.Generic;
+using Microsoft.AspNet.SignalR.Hubs;
 
 [assembly: OwinStartup(typeof(SignalR.Hubs.Sample.Startup1))]
 
@@ -22,6 +24,37 @@ namespace SignalR.Hubs.Sample
             ////redis
             //GlobalHost.DependencyResolver.UseRedis("localhost", 6379, null, "");
             //app.MapSignalR();
+
+            //GlobalHost.DependencyResolver = new CustomerDependencyResolver();
+
         }
     }
+
+    public class CustomerDependencyResolver : DefaultDependencyResolver
+    {
+
+        public override object GetService(Type serviceType)
+        {
+            var model = base.GetService(serviceType);
+
+            return model;
+
+        }
+
+        public override IEnumerable<object> GetServices(Type serviceType)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+
+    public class MyJavaScriptMinifier : IJavaScriptMinifier
+    {
+        public string Minify(string source)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
+
