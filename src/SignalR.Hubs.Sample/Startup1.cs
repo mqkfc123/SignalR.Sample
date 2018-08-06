@@ -18,6 +18,10 @@ namespace SignalR.Hubs.Sample
             app.MapSignalR("/myHub2", new Microsoft.AspNet.SignalR.HubConfiguration());
 
             //GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(2);
+
+            ////redis
+            //GlobalHost.DependencyResolver.UseRedis("localhost", 6379, null, "");
+            //app.MapSignalR();
         }
     }
 }
