@@ -5,6 +5,7 @@ using Owin;
 using Microsoft.AspNet.SignalR;
 using System.Collections.Generic;
 using Microsoft.AspNet.SignalR.Hubs;
+using Microsoft.Ajax.Utilities;
 
 [assembly: OwinStartup(typeof(SignalR.Hubs.Sample.Startup1))]
 
@@ -52,7 +53,8 @@ namespace SignalR.Hubs.Sample
     {
         public string Minify(string source)
         {
-            throw new NotImplementedException();
+            return new Minifier().MinifyJavaScript(source);
+            //throw new NotImplementedException();
         }
     }
 
