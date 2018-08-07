@@ -14,7 +14,7 @@ namespace SignalR.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var conn = new HubConnection("地址");
+            var conn = new HubConnection("http://localhost:7683/signalr");
             var proxy = conn.CreateHubProxy("Hub1");
 
             proxy.On("Welcome", (msg) =>
@@ -23,10 +23,9 @@ namespace SignalR.ConsoleApp
             });
 
             conn.Start().Wait();
-
-            var info = proxy.Invoke<string>("", 100).Result;
-
+            var info = proxy.Invoke<string>("Hello", 100).Result;
         }
+
 
     }
 
