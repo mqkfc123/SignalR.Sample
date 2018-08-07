@@ -64,6 +64,7 @@ namespace SignalR.Hubs.Sample
     /// <summary>
     /// HubPipeLine管道
     /// 方法执行之前，方法执行之后的拦截。
+    /// HubPipelineModule
     /// </summary>
     public class CustomerHubPipeLineMouble : IHubPipelineModule
     {
