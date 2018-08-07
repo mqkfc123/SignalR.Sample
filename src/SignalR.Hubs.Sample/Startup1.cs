@@ -6,6 +6,7 @@ using Microsoft.AspNet.SignalR;
 using System.Collections.Generic;
 using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.Ajax.Utilities;
+using System.Linq;
 
 [assembly: OwinStartup(typeof(SignalR.Hubs.Sample.Startup1))]
 
@@ -28,6 +29,7 @@ namespace SignalR.Hubs.Sample
 
             //GlobalHost.DependencyResolver = new CustomerDependencyResolver();
 
+            //GlobalHost.HubPipeline.AddModule(new CustomerHubPipeLineMouble());
         }
     }
 
@@ -55,6 +57,70 @@ namespace SignalR.Hubs.Sample
         {
             return new Minifier().MinifyJavaScript(source);
             //throw new NotImplementedException();
+        }
+    }
+
+
+    /// <summary>
+    /// HubPipeLine管道
+    /// 方法执行之前，方法执行之后的拦截。
+    /// </summary>
+    public class CustomerHubPipeLineMouble : IHubPipelineModule
+    {
+        public Func<HubDescriptor, IRequest, bool> BuildAuthorizeConnect(Func<HubDescriptor, IRequest, bool> authorizeConnect)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Func<IHub, Task> BuildConnect(Func<IHub, Task> connect)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Func<IHub, bool, Task> BuildDisconnect(Func<IHub, bool, Task> disconnect)
+        {
+            return disconnect;
+
+        }
+
+        /// <summary>
+        /// 入流
+        /// </summary>
+        /// <param name="invoke"></param>
+        /// <returns></returns>
+        public Func<IHubIncomingInvokerContext, Task<object>> BuildIncoming(Func<IHubIncomingInvokerContext, Task<object>> invoke)
+        {
+            return (context) =>
+            {
+                var method = context.MethodDescriptor.Name;
+                var args = context.Args.ToList();
+                //日志
+                //逻辑判断
+
+                return invoke(context);
+            };
+
+        }
+
+        /// <summary>
+        /// 出流
+        /// </summary>
+        /// <param name="send"></param>
+        /// <returns></returns>
+        public Func<IHubOutgoingInvokerContext, Task> BuildOutgoing(Func<IHubOutgoingInvokerContext, Task> send)
+        {
+            return send;
+
+        }
+
+        public Func<IHub, Task> BuildReconnect(Func<IHub, Task> reconnect)
+        {
+            return reconnect;
+        }
+
+        public Func<HubDescriptor, IRequest, IList<string>, IList<string>> BuildRejoiningGroups(Func<HubDescriptor, IRequest, IList<string>, IList<string>> rejoiningGroups)
+        {
+            return rejoiningGroups;
         }
     }
 
