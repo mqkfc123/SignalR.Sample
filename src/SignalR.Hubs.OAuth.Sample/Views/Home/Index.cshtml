@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
+    <title>Index</title>
+
+    <script type="text/javascript">
+        $.post("login.aspx", { "username": "jack", "password": "123456" }, function () {
+            //如果执行成功。那么cookie就种下了
+            window.location.href = "";
+        });
+
+      
+    </script>
+</head>
+<body>
+    <div> 
+    </div>
+</body>
+</html>
