@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+     
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
+    <!--将服务端的方法变成可执行的js方法 生成代理-->
+     <script src="/signalr/js"></script> 
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var conn= $.connection("/myconnection");
+
+   
+</script>
